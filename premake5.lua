@@ -2,8 +2,7 @@ project "GLFW"
     kind "StaticLib"
 	language "C"
 
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir "bin/%{cfg.buildcfg}"
 
 	files {
         "include/GLFW/glfw3.h",
@@ -54,11 +53,6 @@ project "GLFW"
         {
             "_GLFW_X11"
         
-        }
-
-        links {
-            "pthread",
-            "dl"
         }
 
     filter "system:windows"
